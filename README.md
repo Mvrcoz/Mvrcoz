@@ -1,42 +1,43 @@
-<h1>Hi, I'm Marco!
+# 🚀 Cybersecurity Portfolio by Marco Zuniga
 
-<h2>👨‍💻 Cybersecurity Projects:</h2>
+Welcome to my cybersecurity portfolio! This repository highlights my hands-on projects, labs, and scripts focused on key areas such as penetration testing, network security, password cracking, and more.
 
-- <b>Data Structures and Algorithms Practice (AlgoExpert)</b>
-  - [Praciting DS & Algos in Python](https://github.com/joshmadakor1/Algorithms-Practice)
+## 📂 Table of Contents
+- [About Me](#about-me)
+- [Projects](#projects)
+- [Lab Reports](#lab-reports)
+- [Tools and Technologies](#tools-and-technologies)
+- [Contact](#contact)
 
+## 👨‍💻 About Me
+I am a cybersecurity professional with expertise in penetration testing, GRC, and IT systems. My work involves exploring practical solutions to common security challenges through a mix of testing and automation.
 
-<h2>📺 Popular YouTube Videos</h2>
+## 🔒 Projects
+Here are some featured projects that demonstrate my skills:
+1. **Password Cracking with Linux**: An in-depth lab that covers password cracking techniques using tools like John the Ripper and Hashcat.
+   - **[Link to Lab Report](#)** (Replace with your link)
+   - **Tech Stack**: Linux, John the Ripper, Hashcat
 
-- [How to get into Cybersecurity Starting From Zero](https://www.youtube.com/watch?v=a83ASGn_V_s)
-- [A Day in the Life of a Cybersecurity Anayst](https://www.youtube.com/watch?v=uHy3oM7NnoU)
-- [How to Create a KeyLogger (C#)](https://www.youtube.com/watch?v=N-L9hklSlNk)
-- [Ransomware Demonstration (C#)](https://www.youtube.com/watch?v=OfvdQeh79s0)
-- [Is WGU Legit?](https://www.youtube.com/watch?v=E2MwRWxDBkA)
+2. **Penetration Testing Automation**: Scripts and tools for automating common tasks in a penetration testing workflow.
+   - **[Link to Project](#)** (Replace with your link)
+   - **Tech Stack**: Python, Nmap, Metasploit
 
-<h2> 🤳 Connect with me:</h2>
+3. **GRC Compliance Toolkit**: Tools and templates to help organizations with compliance management.
+   - **[Link to Toolkit](#)** (Replace with your link)
+   - **Tech Stack**: Excel, Python, Compliance Frameworks
 
-[<img align="left" alt="JoshMadakor | YouTube" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/youtube.svg" />][youtube]
-[<img align="left" alt="JoshMadakor | Twitter" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/twitter.svg" />][twitter]
-[<img align="left" alt="JoshMadakor | LinkedIn" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/linkedin.svg" />][linkedin]
-[<img align="left" alt="JoshMadakor | Instagram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/instagram.svg" />][instagram]
+## 📝 Lab Reports
+- **[Password Cracking with Linux](#)**: Detailed steps, methodologies, and results of password cracking experiments.
+- **[Network Vulnerability Assessment](#)**: Analysis and mitigation of network vulnerabilities.
+- **[Web Application Security](#)**: Testing and securing a web application against common attacks.
 
-[twitter]: https://twitter.com/joshmadakor
-[youtube]: https://www.youtube.com/c/joshmadakor
-[instagram]: https://www.instagram.com/joshmadakor/
-[linkedin]: https://linkedin.com/in/joshmadakor
+## 🛠 Tools and Technologies
+- **Penetration Testing**: Kali Linux, Metasploit, Burp Suite
+- **Password Cracking**: John the Ripper, Hashcat
+- **Scripting**: Python, Bash
+- **Compliance and GRC**: NIST, ISO 27001
 
-<!--
-**joshmadakor1/joshmadakor1** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## 📬 Contact
+Feel free to reach out if you have any questions or would like to collaborate:
+- LinkedIn: [Your LinkedIn Profile](#) (Replace with your link)
+- Email: [Your Email Address](#)
