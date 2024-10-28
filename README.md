@@ -29,7 +29,7 @@ Here are some featured projects that demonstrate my skills:
 ## 📝 Lab Reports
 - **[Password Cracking with Linux](#)**: Detailed steps, methodologies, and results of password cracking experiments.
 - **[Network Vulnerability Assessment](#)**: Analysis and mitigation of network vulnerabilities.
-- **[Web Application Security](#)**: Testing and securing a web application against common attacks.
+- **[Web Application Security](#){https://github.com/Mvrcoz/Web-Application-Attacks/tree/main}**: Testing and securing a web application against common attacks.
 
 ## 🛠 Tools and Technologies
 - **Penetration Testing**: Kali Linux, Metasploit, Burp Suite
