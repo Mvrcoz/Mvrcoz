@@ -1,43 +1,52 @@
-# 🚀 Cybersecurity Portfolio by Marco Zuniga
+## 💻 Marco Zuniga - Cybersecurity Enthusiast | Future Penetration Tester | GRC Professional
 
-Welcome to my cybersecurity portfolio! This repository highlights my hands-on projects, labs, and scripts focused on key areas such as penetration testing, network security, password cracking, and more.
+Welcome to my GitHub profile! I’m Marco, a passionate cybersecurity professional with hands-on experience across network security, encryption, incident response, and ethical hacking. My journey has equipped me with a solid foundation in identifying vulnerabilities, mitigating threats, and upholding data security. Here, you’ll find my portfolio of projects showcasing a blend of technical skills and practical knowledge gained from real-world labs and industry-standard tools.
 
-## 📂 Table of Contents
-- [About Me](#about-me)
-- [Projects](#projects)
-- [Lab Reports](#lab-reports)
-- [Tools and Technologies](#tools-and-technologies)
-- [Contact](#contact)
+🌟 **Career Goal**: I’m committed to advancing as a Penetration Tester and GRC Analyst, focusing on building secure environments and helping organizations strengthen their cyber resilience.
 
-## 👨‍💻 About Me
-I am a cybersecurity professional with expertise in penetration testing, GRC, and IT systems. My work involves exploring practical solutions to common security challenges through a mix of testing and automation.
+---
 
-## 🔒 Projects
-Here are some featured projects that demonstrate my skills:
-1. **Password Cracking with Linux**: An in-depth lab that covers password cracking techniques using tools like John the Ripper and Hashcat.
-   - **[Link to Lab Report](#)** (Replace with your link)
-   - **Tech Stack**: Linux, John the Ripper, Hashcat
+### 📂 Featured Projects
 
-2. **Penetration Testing Automation**: Scripts and tools for automating common tasks in a penetration testing workflow.
-   - **[Link to Project](#)** (Replace with your link)
-   - **Tech Stack**: Python, Nmap, Metasploit
+- **Web Application Attacks** ([Repo Link](https://github.com/Mvrcoz/Web-Application-Attacks))  
+   *Explored and exploited SQL Injection and Cross-Site Scripting (XSS) vulnerabilities using WebGoat and DVWA, with a focus on protecting sensitive information in web applications.*
 
-3. **GRC Compliance Toolkit**: Tools and templates to help organizations with compliance management.
-   - **[Link to Toolkit](#)** (Replace with your link)
-   - **Tech Stack**: Excel, Python, Compliance Frameworks
+- **Network Firewall Configuration** ([Repo Link](https://github.com/Mvrcoz/Network-Firewall-Configuration))  
+   *Configured firewall rules, NAT, and VPN settings using pfSense, demonstrating a proactive approach to network security and access control.*
 
-## 📝 Lab Reports
-- **[Password Cracking with Linux](#)**: Detailed steps, methodologies, and results of password cracking experiments.
-- **[Network Vulnerability Assessment](#)**: Analysis and mitigation of network vulnerabilities.
-- **[Web Application Security](https://github.com/Mvrcoz/Web-Application-Attacks/tree/main)**: Testing and securing a web application against common attacks.
+- **Cryptography Concepts** ([Repo Link](https://github.com/Mvrcoz/Cryptography-Concepts-))  
+   *Implemented data hiding techniques and file integrity verification, enhancing my understanding of steganography, encryption, and data protection.*
 
-## 🛠 Tools and Technologies
-- **Penetration Testing**: Kali Linux, Metasploit, Burp Suite
-- **Password Cracking**: John the Ripper, Hashcat
-- **Scripting**: Python, Bash
-- **Compliance and GRC**: NIST, ISO 27001
+- **Intrusion Detection Systems (IDS) Analysis** ([Repo Link](https://github.com/Mvrcoz/IDS-Analysis))  
+   *Monitored and analyzed network traffic using Security Onion, with experience filtering and investigating threats using Sguil and Squert.*
 
-## 📬 Contact
-Feel free to reach out if you have any questions or would like to collaborate:
-- LinkedIn: [Your LinkedIn Profile](#) (Replace with your link)
-- Email: [Your Email Address](#)
+- **Incident Response Procedures** ([Repo Link](https://github.com/Mvrcoz/Incident-Response))  
+   *Developed incident response skills by conducting phishing simulations and analyzing logs, emphasizing prompt detection and response to security incidents.*
+
+- **Data Encryption** ([Repo Link](https://github.com/Mvrcoz/Data-Encryption))  
+   *Compared encryption techniques to secure data at rest and data in transit, evaluating tools like VeraCrypt and BitLocker for robust data protection.*
+
+- **Wireless Network Security** ([Repo Link](https://github.com/Mvrcoz/Wireless-Security))  
+   *Captured and analyzed Wi-Fi packets using Wireshark and Aircrack-ng to assess wireless network vulnerabilities, with insights into WEP and WPA security standards.*
+
+---
+
+### 🔧 Technical Skills
+
+- **Cybersecurity Tools**: Kali Linux, Wireshark, Nmap, Aircrack-ng, Security Onion, OpenVAS, Metasploit, pfSense, Steghide
+- **Programming and Scripting**: Python, Bash, PowerShell
+- **Systems and Network**: Windows Server, Active Directory, VPN configuration, Firewall/NAT rules
+- **Compliance and Governance**: Familiar with frameworks like ISO 27001, NIST, and SOC 2
+
+---
+
+### 🎯 Let’s Connect
+
+I’m always looking for opportunities to collaborate on challenging projects or connect with other professionals passionate about cybersecurity. Feel free to reach out!
+
+- **LinkedIn**: [Marco Zuniga](https://www.linkedin.com/in/marcoz-tech/)
+- **GitHub Portfolio**: You’re already here!
+- **Email**: Mzuniga0429@gmail.com
+
+Let’s work together to build a safer digital world.
+
