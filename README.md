@@ -1,52 +1,95 @@
-## 💻 Marco Zuniga - Cybersecurity Enthusiast | Future Penetration Tester | GRC Professional
+<div align="center">
 
-Welcome to my GitHub profile! I’m Marco, a passionate cybersecurity professional with hands-on experience across network security, encryption, incident response, and ethical hacking. My journey has equipped me with a solid foundation in identifying vulnerabilities, mitigating threats, and upholding data security. Here, you’ll find my portfolio of projects showcasing a blend of technical skills and practical knowledge gained from real-world labs and industry-standard tools.
+# Marco Zuniga
+### Cybersecurity · IT Support · Ethical Hacking
 
-🌟 **Career Goal**: I’m committed to advancing as a Penetration Tester and GRC Analyst, focusing on building secure environments and helping organizations strengthen their cyber resilience.
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-marcoz--tech-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/marcoz-tech/)
+[![TryHackMe](https://img.shields.io/badge/TryHackMe-Top%2015%25%20·%20ADEPT-212C42?style=for-the-badge&logo=tryhackme&logoColor=red)](https://tryhackme.com/p/Marcoz)
+[![Email](https://img.shields.io/badge/Email-Mzuniga0429@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:Mzuniga0429@gmail.com)
 
----
-
-### 📂 Featured Projects
-
-- **Web Application Attacks** ([Repo Link](https://github.com/Mvrcoz/Web-Application-Attacks))  
-   *Explored and exploited SQL Injection and Cross-Site Scripting (XSS) vulnerabilities using WebGoat and DVWA, with a focus on protecting sensitive information in web applications.*
-
-- **Network Firewall Configuration** ([Repo Link](https://github.com/Mvrcoz/Network-Firewall-Configuration))  
-   *Configured firewall rules, NAT, and VPN settings using pfSense, demonstrating a proactive approach to network security and access control.*
-
-- **Cryptography Concepts** ([Repo Link](https://github.com/Mvrcoz/Cryptography-Concepts-))  
-   *Implemented data hiding techniques and file integrity verification, enhancing my understanding of steganography, encryption, and data protection.*
-
-- **Intrusion Detection Systems (IDS) Analysis** ([Repo Link](https://github.com/Mvrcoz/IDS-Analysis))  
-   *Monitored and analyzed network traffic using Security Onion, with experience filtering and investigating threats using Sguil and Squert.*
-
-- **Incident Response Procedures** ([Repo Link](https://github.com/Mvrcoz/Incident-Response))  
-   *Developed incident response skills by conducting phishing simulations and analyzing logs, emphasizing prompt detection and response to security incidents.*
-
-- **Data Encryption** ([Repo Link](https://github.com/Mvrcoz/Data-Encryption))  
-   *Compared encryption techniques to secure data at rest and data in transit, evaluating tools like VeraCrypt and BitLocker for robust data protection.*
-
-- **Wireless Network Security** ([Repo Link](https://github.com/Mvrcoz/Wireless-Security))  
-   *Captured and analyzed Wi-Fi packets using Wireshark and Aircrack-ng to assess wireless network vulnerabilities, with insights into WEP and WPA security standards.*
+</div>
 
 ---
 
-### 🔧 Technical Skills
+## `whoami`
 
-- **Cybersecurity Tools**: Kali Linux, Wireshark, Nmap, Aircrack-ng, Security Onion, OpenVAS, Metasploit, pfSense, Steghide
-- **Programming and Scripting**: Python, Bash, PowerShell
-- **Systems and Network**: Windows Server, Active Directory, VPN configuration, Firewall/NAT rules
-- **Compliance and Governance**: Familiar with frameworks like ISO 27001, NIST, and SOC 2
+```text
+Name     : Marco Zuniga
+Location : Bell, CA
+Focus    : IT Support · Network Security · Ethical Hacking · GRC
+Status   : Actively applying — open to Help Desk, IT Support, and Cybersecurity roles
+```
+
+A.S. in Computer Information Systems + Cybersecurity Certificate from Cypress College. Hands-on across PKI, firewall configuration, log analysis, Metasploit, and incident response — through 39 TryHackMe rooms and multiple CySA+-aligned labs. Currently pursuing CompTIA Network+.
 
 ---
 
-### 🎯 Let’s Connect
+## Credentials
 
-I’m always looking for opportunities to collaborate on challenging projects or connect with other professionals passionate about cybersecurity. Feel free to reach out!
+| | Credential | Details |
+|---|---|---|
+| ✅ | **CompTIA ITF+** | Earned |
+| 🔄 | **CompTIA Network+** (N10-009) | In progress |
+| 🔄 | **CompTIA Security+** (SY0-601) | In progress |
+| 🏆 | **TryHackMe** — Top 15% · ADEPT · 6 badges · 39 rooms | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
+| 🎓 | **A.S. Computer Information Systems** | Cypress College · 2022 |
+| 🎓 | **Cybersecurity Certificate** | Cypress College · 2023 |
 
-- **LinkedIn**: [Marco Zuniga](https://www.linkedin.com/in/marcoz-tech/)
-- **GitHub Portfolio**: You’re already here!
-- **Email**: Mzuniga0429@gmail.com
+---
 
-Let’s work together to build a safer digital world.
+## Featured Projects
 
+> Each repo includes a full write-up: lab environment, tools used, key decisions made, and what I'd do differently in production.
+
+### 🔐 Security Labs
+
+| Repo | What I did | Tools |
+|---|---|---|
+| [PKI Infrastructure Lab](https://github.com/Mvrcoz/Network-Firewall-Configuration) | Deployed standalone Root CA, configured AD CS, set cryptographic policy | Windows Server, AD CS, pfSense |
+| [Apache Log Analysis — Bash](https://github.com/Mvrcoz/Apache-Log-Analysis-Bash) | Detected attack traffic in Apache logs using bash pipelines; identified 1,500+ OWASP ZAP entries | Bash, grep/cut/sort/uniq, OWASP ZAP, Kali |
+| [Metasploit RAT + Incident Response](https://github.com/Mvrcoz/Metasploit-RAT-IR) | Built and deployed RAT via MSFVenom, established Meterpreter session, ran keylogger — then detected and killed it via PowerShell | Metasploit, MSFVenom, PowerShell, Kali |
+| [Network Firewall Config — pfSense](https://github.com/Mvrcoz/Network-Firewall-Configuration) | Configured firewall rules, NAT, and OpenVPN across segmented lab network | pfSense, Kali, Ubuntu |
+| [IDS Analysis — Security Onion](https://github.com/Mvrcoz/IDS-Analysis) | Monitored and analyzed network traffic, filtered and investigated threats | Security Onion, Sguil, Squert |
+| [Wireless Network Security](https://github.com/Mvrcoz/Wireless-Security) | Packet capture and WEP/WPA vulnerability assessment | Wireshark, Aircrack-ng |
+
+### 📋 GRC & Analysis
+
+| Repo | What I did | Frameworks |
+|---|---|---|
+| [Enterprise Risk Assessment — Twitcher](https://github.com/Mvrcoz/Enterprise-Risk-Assessment-Twitcher) | 14-domain security assessment for a 10M-user tech company with no security program — findings and remediation roadmap for incoming CISO | NIST CSF, CySA+ |
+| [Incident Response Procedures](https://github.com/Mvrcoz/Incident-Response) | Phishing simulation and log-based IR analysis | NIST IR framework |
+
+### 🛠️ Systems & Exploitation
+
+| Repo | What I did | Tools |
+|---|---|---|
+| [Web Application Attacks](https://github.com/Mvrcoz/Web-Application-Attacks) | Exploited SQLi and XSS vulnerabilities in controlled lab environment | WebGoat, DVWA, Burp Suite |
+| [Password Cracking — Linux](https://github.com/Mvrcoz/Password-Cracking-w-Linux) | Cracked hashed passwords using dictionary and brute-force methods | John the Ripper, Hashcat, Kali |
+| [Cryptography Concepts](https://github.com/Mvrcoz/Cryptography-Concepts-) | Steganography, file integrity verification, encryption at rest vs. in transit | VeraCrypt, Steghide |
+| [Data Encryption](https://github.com/Mvrcoz/Data-Encryption) | Compared BitLocker vs VeraCrypt for endpoint encryption | Windows, VeraCrypt |
+
+---
+
+## Tech Stack
+
+```text
+OS & Systems    : Kali Linux · Ubuntu · Windows Server 2012R2/2016 · Active Directory
+Security Tools  : Metasploit · Wireshark · Nmap · OWASP ZAP · Security Onion · OpenVAS · pfSense
+Scripting       : Bash · PowerShell · Python (coursework)
+Platforms       : TryHackMe (Top 15%) · NETLAB+ Labs · VirtualBox
+Frameworks      : NIST CSF · ISO 27001 concepts · CySA+ methodology
+```
+
+---
+
+## TryHackMe
+
+[![TryHackMe Stats](https://tryhackme-badges.s3.amazonaws.com/Marcoz.png)](https://tryhackme.com/p/Marcoz)
+
+---
+
+<div align="center">
+
+*Portfolio in active development — new labs added weekly.*
+
+</div>
