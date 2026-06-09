@@ -20,20 +20,22 @@ Focus    : IT Support · Network Security · Ethical Hacking · GRC
 Status   : Actively applying — open to Help Desk, IT Support, and Cybersecurity roles
 ```
 
-A.S. in Computer Information Systems + Cybersecurity Certificate from Cypress College. Hands-on across PKI, firewall configuration, log analysis, Metasploit, and incident response — through 39 TryHackMe rooms and multiple CySA+-aligned labs. Currently pursuing CompTIA Network+.
+Multiple degrees and certificates from Cypress College across CIS, Cybersecurity, DevSecOps, and Cyber Defense. Hands-on across PKI, firewall configuration, log analysis, Metasploit, and incident response — through 39 TryHackMe rooms and multiple CySA+-aligned labs. Currently pursuing CompTIA Network+.
 
 ---
 
-## Credentials
+## Education & Credentials
 
-| | Credential | Details |
-|---|---|---|
-| ✅ | **CompTIA ITF+** | Earned |
-| 🔄 | **CompTIA Network+** (N10-009) | In progress |
-| 🔄 | **CompTIA Security+** (SY0-601) | In progress |
-| 🏆 | **TryHackMe** — Top 15% · ADEPT · 6 badges · 39 rooms | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
-| 🎓 | **A.S. Computer Information Systems** | Cypress College · 2022 |
-| 🎓 | **Cybersecurity Certificate** | Cypress College · 2023 |
+| | Credential | Institution | Status |
+|---|---|---|---|
+| 🎓 | **A.S. Computer Information Systems** | Cypress College | Earned · 2022 |
+| 🎓 | **Cybersecurity Certificate** | Cypress College | Earned · 2023 |
+| 🎓 | **DevSecOps Certificate** | Cypress College | Earned · 2025 |
+| 🎓 | **A.S. Cyber Defense** | Cypress College | Conferred · Summer 2026 |
+| ✅ | **CompTIA ITF+** | CompTIA | Earned |
+| 🔄 | **CompTIA Network+** (N10-009) | CompTIA | In progress |
+| 🔄 | **CompTIA Security+** (SY0-601) | CompTIA | In progress |
+| 🏆 | **TryHackMe** — Top 15% · ADEPT · 6 badges · 39 rooms | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
 
 ---
 
@@ -77,7 +79,7 @@ OS & Systems    : Kali Linux · Ubuntu · Windows Server 2012R2/2016 · Active D
 Security Tools  : Metasploit · Wireshark · Nmap · OWASP ZAP · Security Onion · OpenVAS · pfSense
 Scripting       : Bash · PowerShell · Python (coursework)
 Platforms       : TryHackMe (Top 15%) · NETLAB+ Labs · VirtualBox
-Frameworks      : NIST CSF · ISO 27001 concepts · CySA+ methodology
+Frameworks      : NIST CSF · ISO 27001 concepts · CySA+ methodology · DevSecOps practices
 ```
 
 ---
