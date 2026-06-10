@@ -35,7 +35,9 @@ Multiple degrees and certificates from Cypress College across CIS, Cybersecurity
 | ✅ | **CompTIA ITF+** | CompTIA | Earned |
 | 🔄 | **CompTIA Network+** (N10-009) | CompTIA | In progress |
 | 🔄 | **CompTIA Security+** (SY0-601) | CompTIA | In progress |
-| 🏆 | **TryHackMe** — Top 15% · ADEPT · 6 badges · 39 rooms | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
+| 🏆 | **TryHackMe** — Top 15% · ADEPT · 39 rooms | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
+| 🎖️ | **Linux PrivEsc badge** — earned by 2.5% of users (Rare) | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
+| 🎖️ | **Networking Nerd · cat linux.txt · Webbed · World Wide Web · 7 Day Streak** badges | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
 
 ---
 
