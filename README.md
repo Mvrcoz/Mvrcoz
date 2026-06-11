@@ -20,7 +20,7 @@ Focus    : IT Support · Network Security · Ethical Hacking · GRC
 Status   : Actively applying — open to Help Desk, IT Support, and Cybersecurity roles
 ```
 
-Multiple degrees and certificates from Cypress College across CIS, Cybersecurity, DevSecOps, and Cyber Defense. Hands-on across PKI, firewall configuration, log analysis, Metasploit, and incident response — through 39 TryHackMe rooms and multiple CySA+-aligned labs. Currently pursuing CompTIA Network+.
+Two A.S. degrees and two certificates from Cypress College across CIS, Cybersecurity, DevSecOps, and Cyber Defense. Hands-on across PKI, firewall configuration, log analysis, Metasploit, and incident response — through 39 TryHackMe rooms and multiple CySA+-aligned labs. Currently pursuing CompTIA Network+.
 
 ---
 
@@ -31,13 +31,13 @@ Multiple degrees and certificates from Cypress College across CIS, Cybersecurity
 | 🎓 | **A.S. Computer Information Systems** | Cypress College | Earned · 2022 |
 | 🎓 | **Cybersecurity Certificate** | Cypress College | Earned · 2023 |
 | 🎓 | **DevSecOps Certificate** | Cypress College | Earned · 2025 |
-| 🎓 | **A.S. Cyber Defense** | Cypress College | Conferred · Summer 2026 |
+| 🎓 | **A.S. Cyber Defense** | Cypress College | Earned · June 2026 ✅ |
 | ✅ | **CompTIA ITF+** | CompTIA | Earned |
 | 🔄 | **CompTIA Network+** (N10-009) | CompTIA | In progress |
 | 🔄 | **CompTIA Security+** (SY0-601) | CompTIA | In progress |
 | 🏆 | **TryHackMe** — Top 15% · ADEPT · 39 rooms | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
 | 🎖️ | **Linux PrivEsc badge** — earned by 2.5% of users (Rare) | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
-| 🎖️ | **Networking Nerd · cat linux.txt · Webbed · World Wide Web · 7 Day Streak** badges | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
+| 🎖️ | **Networking Nerd · cat linux.txt · Webbed · World Wide Web · 7 Day Streak** | TryHackMe | [tryhackme.com/p/Marcoz](https://tryhackme.com/p/Marcoz) |
 
 ---
 
@@ -49,7 +49,7 @@ Multiple degrees and certificates from Cypress College across CIS, Cybersecurity
 
 | Repo | What I did | Tools |
 |---|---|---|
-| [PKI Infrastructure Lab](https://github.com/Mvrcoz/Network-Firewall-Configuration) | Deployed standalone Root CA, configured AD CS, set cryptographic policy | Windows Server, AD CS, pfSense |
+| [PKI Infrastructure Lab](https://github.com/Mvrcoz/PKI-Lab-Windows-Server) | Deployed standalone Root CA, configured AD CS, set cryptographic policy | Windows Server, AD CS, pfSense |
 | [Apache Log Analysis — Bash](https://github.com/Mvrcoz/Apache-Log-Analysis-Bash) | Detected attack traffic in Apache logs using bash pipelines; identified 1,500+ OWASP ZAP entries | Bash, grep/cut/sort/uniq, OWASP ZAP, Kali |
 | [Metasploit RAT + Incident Response](https://github.com/Mvrcoz/Metasploit-RAT-IR) | Built and deployed RAT via MSFVenom, established Meterpreter session, ran keylogger — then detected and killed it via PowerShell | Metasploit, MSFVenom, PowerShell, Kali |
 | [Network Firewall Config — pfSense](https://github.com/Mvrcoz/Network-Firewall-Configuration) | Configured firewall rules, NAT, and OpenVPN across segmented lab network | pfSense, Kali, Ubuntu |
@@ -60,7 +60,7 @@ Multiple degrees and certificates from Cypress College across CIS, Cybersecurity
 
 | Repo | What I did | Frameworks |
 |---|---|---|
-| [Enterprise Risk Assessment — Twitcher](https://github.com/Mvrcoz/Enterprise-Risk-Assessment-Twitcher) | 14-domain security assessment for a 10M-user tech company with no security program — findings and remediation roadmap for incoming CISO | NIST CSF, CySA+ |
+| [Enterprise Risk Assessment — Twitcher](https://github.com/Mvrcoz/Enterprise-Risk-Assessment-Twitcher) | 15-domain security assessment for a 10M-user tech company with no security program — CISO briefing with findings and remediation roadmap | NIST CSF · GDPR · PCI DSS · CCPA |
 | [Incident Response Procedures](https://github.com/Mvrcoz/Incident-Response) | Phishing simulation and log-based IR analysis | NIST IR framework |
 
 ### 🛠️ Systems & Exploitation
