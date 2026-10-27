@@ -30,8 +30,8 @@ Two A.S. degrees and two certificates from Cypress College across CIS, Cybersecu
 |---|---|---|---|
 | 🎓 | **A.S. Computer Information Systems** | Cypress College | Earned · 2022 |
 | 🎓 | **Cybersecurity Certificate** | Cypress College | Earned · 2023 |
-| 🎓 | **DevSecOps Certificate** | Cypress College | Earned · 2025 |
-| 🎓 | **A.S. Cyber Defense** | Cypress College | Earned · June 2026 ✅ |
+| 🎓 | **DevSecOps Certificate** | Cypress College | Earned · May 2026 |
+| 🎓 | **A.S. Cyber Defense** | Cypress College | Earned · May 2026 |
 | ✅ | **CompTIA ITF+** | CompTIA | Earned |
 | 🔄 | **CompTIA Network+** (N10-009) | CompTIA | In progress |
 | 🔄 | **CompTIA Security+** (SY0-601) | CompTIA | In progress |
