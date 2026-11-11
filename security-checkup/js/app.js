@@ -152,7 +152,7 @@ const VERDICT_LEVEL = {
   'Likely dangerous': 'danger',
   'Be careful': 'caution',
   'Minor concerns': 'minor',
-  'No red flags found': 'ok',
+  'No red flags found': 'neutral',
   'Not a link': 'invalid',
 };
 
@@ -193,8 +193,10 @@ function setUpLink() {
   $('link-input').addEventListener('keydown', (event) => {
     if (event.key === 'Enter') runLinkCheck();
   });
+  // A verdict belongs to the exact text that was checked. Hide it as soon as
+  // the text changes, so an old verdict is never read against a new link.
   $('link-input').addEventListener('input', () => {
-    if ($('link-input').value.trim() === '') $('link-result').hidden = true;
+    $('link-result').hidden = true;
   });
 }
 
@@ -237,7 +239,7 @@ function renderGeneratorOptions() {
   const bits = isPassphrase ? passphraseEntropyBits(settings) : passwordEntropyBits(settings);
   $('gen-entropy').textContent = noClass
     ? ''
-    : `About ${Math.floor(bits)} bits of randomness. Higher is harder to guess; 70 or more is plenty for most accounts.`;
+    : `About ${Math.floor(bits)} bits of randomness. Higher is harder to guess.`;
   return { settings, noClass };
 }
 

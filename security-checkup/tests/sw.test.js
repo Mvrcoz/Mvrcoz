@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
+import vm from 'node:vm';
 
 const root = new URL('../', import.meta.url);
 const sw = readFileSync(new URL('sw.js', root), 'utf8');
@@ -18,4 +19,26 @@ test('manifest is installable', () => {
   assert.equal(m.start_url, './');
   assert.deepEqual(m.icons.map((i) => i.sizes).sort(), ['192x192', '512x512']);
   assert.ok(m.name && m.short_name && m.theme_color && m.background_color);
+});
+
+test("activation removes only this app's old caches", async () => {
+  const handlers = {};
+  const deleted = [];
+  vm.runInNewContext(sw, {
+    URL,
+    self: {
+      addEventListener: (type, handler) => { handlers[type] = handler; },
+      clients: { claim: async () => {} },
+      skipWaiting: async () => {},
+      location: { origin: 'https://example.github.io' },
+    },
+    caches: {
+      keys: async () => ['security-checkup-v0', 'other-app-v3', 'security-checkup-v1'],
+      delete: async (name) => { deleted.push(name); return true; },
+    },
+  });
+  let finished;
+  handlers.activate({ waitUntil: (promise) => { finished = promise; } });
+  await finished;
+  assert.deepEqual(deleted, ['security-checkup-v0']);
 });

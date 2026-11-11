@@ -5,6 +5,7 @@
 // When any app file changes, raise the number in CACHE so browsers fetch the
 // new version. tests/sw.test.js checks PRECACHE against the files on disk.
 
+const CACHE_PREFIX = 'security-checkup-';
 const CACHE = 'security-checkup-v1';
 const PRECACHE = [
   './',
@@ -36,7 +37,11 @@ self.addEventListener('install', (event) => {
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((names) => Promise.all(names.filter((name) => name !== CACHE).map((name) => caches.delete(name))))
+      // Only this app's old caches. Other apps on the same address (for example
+      // other GitHub Pages projects of the same account) keep theirs.
+      .then((names) => Promise.all(names
+        .filter((name) => name.startsWith(CACHE_PREFIX) && name !== CACHE)
+        .map((name) => caches.delete(name))))
       .then(() => self.clients.claim()),
   );
 });

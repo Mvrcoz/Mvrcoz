@@ -239,8 +239,11 @@ input[type="range"] { width: 100%; margin: 4px 0 16px; }
 }
 .verdict[data-level="danger"] { background: var(--danger-bg); color: var(--danger); }
 .verdict[data-level="caution"] { background: var(--caution-bg); color: var(--caution); }
-.verdict[data-level="minor"], .verdict[data-level="invalid"] { background: var(--minor-bg); color: var(--minor); }
-.verdict[data-level="ok"] { background: var(--ok-bg); color: var(--ok); }
+/* "No red flags found" is deliberately neutral, not green: it is not a promise of safety. */
+.verdict[data-level="minor"], .verdict[data-level="invalid"], .verdict[data-level="neutral"] {
+  background: var(--minor-bg);
+  color: var(--minor);
+}
 
 .link-host { margin: 12px 0 0; overflow-wrap: anywhere; }
 .link-host strong { font-family: var(--mono); font-size: 0.9375rem; }

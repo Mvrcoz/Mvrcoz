@@ -19,7 +19,7 @@ It installs like an app on phones and computers and, after the first visit, work
 
 - No accounts, no analytics, no ads, no cookies, no third-party scripts.
 - Passwords, links, and generated values are never saved or sent anywhere.
-- The only thing that ever leaves the device: when you press **Check for breaches**, the first 5 characters of the SHA-1 hash of your password are sent to the [Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) Pwned Passwords service. The rest of the comparison happens on your device.
+- The only thing that ever leaves the device: when you press **Check for breaches**, the first 5 characters of the SHA-1 hash of your password are sent to the [Have I Been Pwned](https://haveibeenpwned.com/API/v3#PwnedPasswords) Pwned Passwords service. The rest of the comparison happens on your device. As with any web request, that service can also see the visitor's IP address and the address the app is hosted at.
 - Daily progress is stored in the browser's local storage on that device only.
 
 ## Run it locally
@@ -69,7 +69,8 @@ For GitHub Pages, the usual route is: merge this folder into your default branch
 - **Password strength is an estimate.** It is a home-made scoring method, not a research-grade one. It can rate a password too generously, especially one built from personal details it knows nothing about.
 - **"Not found in known breaches" is not "safe".** It only means the password is not on that list.
 - **The link checker reads the address only.** It cannot see what is on the site and does not know which sites are malicious. "No red flags found" never means "safe".
-- **The brand-impersonation rule uses a short built-in list** of brand names, and a simple rule for country domains such as `co.uk`. It will miss brands not on the list and lookalike spellings such as `paypa1`.
+- **The brand-impersonation rules use short built-in lists** of brand names, free hosting services, and a simple rule for country domains such as `co.uk`. They will miss brands not on the list, lookalike spellings such as `paypa1`, short brand names glued to another word (`uspstracking`), and impersonation on a country ending (`paypal.com.ru`).
+- **It can raise a false alarm on a genuine site.** Any site whose name contains accented or non-English letters is reported as "Likely dangerous", because those characters are also used to imitate ordinary letters. A brand name on a free hosting service is flagged even when it is genuine (`google.github.io`).
 - **Clickjacking protection needs the host.** The `frame-ancestors` protection cannot be set from inside the page; it needs a response header, which basic static hosts such as GitHub Pages do not let you set.
 - **No response padding.** Have I Been Pwned offers an optional `Add-Padding` header that hides the size of the reply. It is not sent, because it could not be tested from the build environment and a refusal would break the lookup.
 

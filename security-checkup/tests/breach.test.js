@@ -60,3 +60,21 @@ test('empty password makes no request', async () => {
   assert.deepEqual(await checkBreach('', async () => { called = true; }), { status: 'unavailable' });
   assert.equal(called, false);
 });
+
+// ---- Found in final review ----
+test('a body mixing junk with hash lines is unavailable, never clear', async () => {
+  assert.deepEqual(await checkBreach('password', reply(`<html>\n${other(1)}\n</html>`)), { status: 'unavailable' });
+  assert.deepEqual(await checkBreach('password', reply(`${other(1)}\r\n\r\n${other(2)}\r\n`)), { status: 'clear' });
+});
+test('hashing unavailable (insecure page) is unavailable, not a hang, and sends nothing', async () => {
+  const original = Object.getOwnPropertyDescriptor(globalThis, 'crypto');
+  Object.defineProperty(globalThis, 'crypto', { value: {}, configurable: true });
+  let called = false;
+  try {
+    assert.deepEqual(await checkBreach('password', async () => { called = true; return new Response(other(1)); }),
+      { status: 'unavailable' });
+  } finally {
+    Object.defineProperty(globalThis, 'crypto', original);
+  }
+  assert.equal(called, false);
+});

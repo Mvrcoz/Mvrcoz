@@ -18,7 +18,14 @@ export async function sha1Hex(text) {
 export async function checkBreach(password, fetchImpl, { timeoutMs = 8000 } = {}) {
   if (password === '') return { status: 'unavailable' };
 
-  const hash = await sha1Hex(password);
+  // Hashing needs a secure page (https or localhost). Without it, say so
+  // rather than leave the caller waiting.
+  let hash;
+  try {
+    hash = await sha1Hex(password);
+  } catch {
+    return { status: 'unavailable' };
+  }
   const prefix = hash.slice(0, 5);
   const suffix = hash.slice(5);
 
@@ -35,11 +42,15 @@ export async function checkBreach(password, fetchImpl, { timeoutMs = 8000 } = {}
     clearTimeout(timer);
   }
 
+  // Every non-blank line must be a hash line. Anything else (a Wi-Fi sign-in
+  // page, an error page) means the reply cannot be trusted to say "clear".
   let validLines = 0;
   let count = 0;
-  for (const line of body.split(/\r?\n/)) {
-    const match = HASH_LINE.exec(line.trim());
-    if (!match) continue;
+  for (const rawLine of body.split(/\r?\n/)) {
+    const line = rawLine.trim();
+    if (line === '') continue;
+    const match = HASH_LINE.exec(line);
+    if (!match) return { status: 'unavailable' };
     validLines++;
     if (match[1].toUpperCase() === suffix) count = Number(match[2]);
   }

@@ -18,11 +18,11 @@ const cases = [
   ['javascript:alert(1)', ['not-web'], 'Likely dangerous'],
   ['data:text/html,<h1>hi</h1>', ['not-web'], 'Likely dangerous'],
   ['https://paypal.com@evil.example/login', ['userinfo'], 'Likely dangerous'],
-  ['https://192.168.1.10/login', ['ip-host'], 'Likely dangerous'],
+  ['https://198.51.100.10/login', ['ip-host'], 'Likely dangerous'],
   ['https://[2001:db8::1]/', ['ip-host'], 'Likely dangerous'],
   ['https://xn--pypal-4ve.com/', ['lookalike'], 'Likely dangerous'],
   ['https://pаypal.com/', ['lookalike'], 'Likely dangerous'], // Cyrillic a
-  ['https://paypal.com.billing-check.example/', ['brand-mismatch'], 'Likely dangerous'],
+  ['https://paypal.com.billing-check.example/', ['brand-mismatch', 'embedded-domain'], 'Likely dangerous'],
   ['https://my-paypal.example/', ['brand-mismatch'], 'Likely dangerous'],
   ['http://example.com/', ['no-https'], 'Be careful'],
   ['https://a.b.c.d.example.com/', ['deep-subdomains'], 'Be careful'],
@@ -67,3 +67,31 @@ test('country domains outside the common list are not mistaken for impersonation
   assert.deepEqual(ids('https://www.amazon.co.il/'), []);
 });
 test('a trailing dot on the host changes nothing', () => assert.deepEqual(ids('https://www.paypal.com./'), []));
+
+// ---- Found in final review ----
+const reviewCases = [
+  ['https://paypalsecure.com/login', ['brand-lookalike'], 'Be careful'],
+  ['https://netflixbilling.com/', ['brand-lookalike'], 'Be careful'],
+  ['https://paypal.xyz/login', ['brand-mismatch'], 'Likely dangerous'],
+  ['https://usps.top/track', ['brand-mismatch'], 'Likely dangerous'],
+  ['https://linkedin.com.evil.example/', ['embedded-domain'], 'Likely dangerous'],
+  ['https://secure-login-verify.pages.dev/', ['free-hosting', 'pressure-words'], 'Minor concerns'],
+  ['https://paypal.github.io/', ['brand-mismatch', 'free-hosting'], 'Likely dangerous'],
+  ['http://192.168.1.1/', ['local-address'], 'Minor concerns'],
+  ['http://10.0.0.1:8080/admin', ['local-address', 'port'], 'Minor concerns'],
+  ['192.168.0.1', ['local-address'], 'Minor concerns'],
+  ['http://[::1]/', ['local-address'], 'Minor concerns'],
+  ['https://203.0.113.9/', ['ip-host'], 'Likely dangerous'],
+  ['http://172.32.0.1/', ['ip-host', 'no-https'], 'Likely dangerous'],
+];
+for (const [u, expected, verdict] of reviewCases)
+  test(`${u} → ${expected}`, () => {
+    assert.deepEqual(ids(u), expected);
+    assert.equal(analyzeUrl(u).verdict, verdict);
+  });
+for (const u of ['https://safety.google/', 'https://www.tax.service.gov.uk/account', 'https://www.service.nsw.gov.au/',
+  'https://www.paypalobjects.com/x.js', 'https://s3.amazonaws.com/bucket', 'https://www.irs.gov/refunds',
+  'https://www.paypal.me/someone'])
+  test(`genuine site stays clean: ${u}`, () => assert.deepEqual(ids(u), []));
+for (const bad of ['3.14', '12.99', '2024', 'mailto:a@b.com', 'tel:+15551234567', 'sms:+15551234567'])
+  test(`not a web link: "${bad}"`, () => assert.equal(analyzeUrl(bad).verdict, 'Not a link'));

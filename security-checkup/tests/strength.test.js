@@ -45,3 +45,38 @@ test('a 10,000 character paste returns within 200 ms', () => {
   estimateStrength('qwertyuiop'.repeat(999) + 'x');
   assert.ok(performance.now() - t < 200);
 });
+
+// ---- Weak-but-long passwords (found in final review) ----
+import { webcrypto } from 'node:crypto';
+import { WORDS } from '../js/wordlist.js';
+import { randomPassword } from '../js/generator.js';
+
+for (const p of ['passwordpassword', 'iloveyouiloveyou', '111111111111a', '1qaz2wsx3edc', 'парольпароль',
+  'Passw0rd!Passw0rd!', 'aaaaaaaaaaaaaaaaaaaaaaaaaaab', 'mypassword123', 'abc123abc123', 'йцукенгшщзхъ',
+  'Hello World!', 'secretsecretsecret', 'qazwsxedcrfv', 'azertyuiop123'])
+  test(`${p} is at most Weak and says why`, () => {
+    const r = estimateStrength(p);
+    assert.ok(r.score <= 1, `${p} scored ${r.score}`);
+    assert.ok(r.warnings.length > 0 && r.suggestions.length > 0);
+  });
+test('typing a password twice does not beat the length rule', () => {
+  assert.ok(score('xK9#mQ2$xK9#mQ2$') <= score('xK9#mQ2$'));
+  assert.ok(estimateStrength('xK9#mQ2$xK9#mQ2$').warnings.length > 0);
+});
+test('an ordinary dictionary word on its own, padded, is not Strong', () => {
+  for (const p of ['Abrasive2024!', 'skirmish-skirmish']) assert.ok(score(p) <= 2, p);
+});
+test('five-word passphrases from the generator list stay Very strong', () =>
+  assert.equal(score([WORDS[10], WORDS[2000], WORDS[4000], WORDS[6000], WORDS[7000]].join('-')), 4));
+test('generated 20-character passwords stay Very strong', () => {
+  for (let i = 0; i < 100; i++) {
+    const p = randomPassword({}, (a) => webcrypto.getRandomValues(a));
+    assert.equal(score(p), 4, p);
+  }
+});
+test('a one-megabyte paste returns within 200 ms', () => {
+  const big = 'kV9#mQ2$xL7!pR4z-correct-battery'.repeat(32768) + 'x';
+  const t = performance.now();
+  estimateStrength(big);
+  assert.ok(performance.now() - t < 200);
+});

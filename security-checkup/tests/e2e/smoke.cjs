@@ -100,6 +100,16 @@ async function main() {
       assert.match(await text('#link-host'), /evil\.example/);
     });
 
+    await step('5b editing the link clears the old verdict', async () => {
+      await page.fill('#link-input', 'https://www.wikipedia.org/');
+      assert.equal(await page.locator('#link-result').isHidden(), true);
+      await page.click('#link-button');
+      assert.equal(await text('#link-verdict'), 'No red flags found');
+      assert.equal(await page.getAttribute('#link-verdict', 'data-level'), 'neutral');
+      await page.type('#link-input', 'x');
+      assert.equal(await page.locator('#link-result').isHidden(), true);
+    });
+
     await step('6 pasted HTML is shown as text, never run', async () => {
       await page.fill('#link-input', '<img src=x onerror=alert(1)>');
       await page.press('#link-input', 'Enter');
@@ -117,6 +127,8 @@ async function main() {
       const phrase = await page.inputValue('#gen-output');
       assert.ok(phrase.split('-').length >= 5, phrase);
       assert.match(await text('#gen-entropy'), /^About \d+ bits/);
+      assert.doesNotMatch(await text('#gen-entropy'), /70/);
+      assert.match(await text('#about'), /IP address/);
       await page.check('#gen-mode-password');
       for (const id of ['upper', 'lower', 'digits', 'symbols']) await page.uncheck(`#gen-${id}`);
       assert.equal(await page.locator('#gen-button').isDisabled(), true);

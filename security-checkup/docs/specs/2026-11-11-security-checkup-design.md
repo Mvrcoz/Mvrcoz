@@ -1,7 +1,7 @@
 # Security Checkup — Design Spec
 
 Date: 2026-11-11
-Status: awaiting owner review
+Status: approved; sections 5.1, 5.2, 5.3 and 5.9 revised after the final code review
 
 ## 1. Purpose
 
@@ -91,20 +91,27 @@ and storage are passed in as parameters, which is what makes them testable.
 `{ score, label, warnings, suggestions }`.
 
 - `score` is 0–4, mapped to labels Very weak, Weak, Fair, Strong, Very strong.
-- Method: start from a guess-count estimate based on length and the character
-  classes used, then reduce it for recognisable weaknesses:
-  - appears in a bundled list of very common passwords (about 100 entries,
-    case-insensitive, also checked after undoing simple letter swaps such as `@`→`a`, `0`→`o`)
-  - made of one repeated character or a short repeated chunk
-  - runs of sequential characters (`abcd`, `4321`) or keyboard rows (`qwerty`, `asdf`)
-  - digits only, or a year or date pattern
-  - shorter than 8 characters (capped at Very weak) or shorter than 12 (capped at Fair)
+- Method: read the password left to right and split it into the pieces a
+  guessing tool tries first. Each piece costs a small fixed number of guesses
+  however long it is; whatever is left over is scored by length and variety.
+  - a very common password (a bundled list of about 110, checked as typed and
+    after undoing letter swaps such as `@`→`a`, `0`→`o`), anywhere in the text
+  - an ordinary word of four or more letters (the generator's word list)
+  - a run along the alphabet, digits, a keyboard row or a keyboard column
+    (`abcd`, `4321`, `qwerty`, `1qaz2wsx`), including common non-US layouts
+  - three or more of the same character in a row
+  - a year (`19xx`, `20xx`)
+- Something typed two or more times (`passwordpassword`) is scored as one copy.
+- Caps: digits only → at most Weak; fewer than 8 characters → Very weak; fewer
+  than 12 → at most Fair; exactly a common password → Very weak; a common
+  password with characters added at the ends → at most Weak.
 - `warnings` say what is wrong; `suggestions` say what to do. Plain English.
 - The UI labels the result an estimate. It makes no claim about time to crack.
 
-This is a self-written heuristic, not a research-grade estimator. It can rate an
-unusual-but-guessable password too generously, which is why the breach lookup
-exists alongside it.
+This is a self-written heuristic, not a research-grade estimator. Its word list
+is a few thousand words, not a full dictionary, so it can still rate a password
+built from names, places or short words too generously (`Liverpool1892`). That
+is one reason the breach lookup exists alongside it.
 
 ### 5.2 `breach.js` — breach lookup
 
@@ -114,6 +121,8 @@ exists alongside it.
   1. Hash the password; uppercase hex.
   2. Send only the first 5 characters: `GET https://api.pwnedpasswords.com/range/{prefix}`.
   3. Search the response lines (`SUFFIX:COUNT`) for the remaining 35 characters.
+     Every non-blank line must have that shape; if any does not, the reply is
+     treated as untrustworthy and the result is `unavailable`, never `clear`.
   4. Return `{ status: 'found', count }`, `{ status: 'clear' }`, or
      `{ status: 'unavailable' }` on network error, non-200 response, or an 8-second timeout.
 - Runs only when the user presses "Check for breaches", never per keystroke.
@@ -136,19 +145,26 @@ A link pasted without `https://` in front is read as if it had it.
 |---|---|
 | Not a web link (`javascript:`, `data:`, `file:` and similar) | high |
 | Username or password part before the host (`https://bank.com@evil.example`) | high |
-| Host is a raw IP address | high |
+| Host is a raw public IP address | high |
+| Another site's ending (`com`, `net`, `org`) sits in front of the real domain (`linkedin.com.evil.example`) | high |
 | Host uses lookalike encoding (`xn--` label or non-ASCII characters) | high |
-| A well-known brand name appears in the host, but the site's actual domain is not that brand's | high |
+| A well-known brand name appears in the host, but the address is not one that brand normally uses (a different site, an unusual ending such as `paypal.xyz`, or a free hosting service) | high |
+| A brand name of six or more letters glued to another word (`paypalsecure.com`), other than a short list of known brand-owned domains | medium |
 | Plain `http://`, not `https://` | medium |
-| Five or more host labels (deep subdomain nesting) | medium |
+| Three or more subdomains in front of the site's own name (deep nesting) | medium |
 | Path ends in an executable or installer type (`.exe`, `.scr`, `.msi`, `.apk`, `.bat`, `.cmd`, `.vbs`, `.jar`) | medium |
 | Known link shortener: the real destination is hidden | low |
+| Address on a private or home network (`192.168.x.x`, `10.x.x.x` and similar), such as a router page. Replaces the IP-address and no-HTTPS flags | low |
+| Site is on a free hosting service where anyone can publish | low |
 | Non-standard port | low |
 | Pressure words in the site's main domain name (`login`, `verify`, `secure`, `account`, `update`, `signin`). Subdomains are not checked, so genuine pages such as `accounts.google.com` stay clean | low |
 | Three or more hyphens in the host (lookalike-encoded labels excluded), or URL longer than 200 characters | low |
 
 Verdicts: any high flag → "Likely dangerous"; any medium → "Be careful"; only low
-→ "Minor concerns"; none → "No red flags found".
+→ "Minor concerns"; none → "No red flags found", shown in a neutral colour, not
+green. Email, phone and text links (`mailto:`, `tel:`, `sms:`), bare email
+addresses and bare numbers are reported as "Not a link". A verdict is hidden as
+soon as the text in the box changes.
 
 Limits, stated in the UI: this checks how a link is written, not what is at the
 other end. "No red flags found" never means "safe". The brand rule uses a short
@@ -221,6 +237,8 @@ in version 1.
 - The service worker caches the app's own files under a versioned cache name and
   serves them cache-first; old caches are deleted on activation.
 - Requests to other origins (the breach API) are never cached or intercepted.
+- On update it deletes only its own old caches (names starting `security-checkup-`),
+  because other apps can share the same web address.
 - Service workers require HTTPS or `localhost`; opening `index.html` straight from
   disk will not work. The README says how to run a local server.
 
