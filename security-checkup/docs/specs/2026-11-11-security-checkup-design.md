@@ -130,6 +130,7 @@ exists alongside it.
 
 `analyzeUrl(input)` returns `{ valid, host, flags, verdict }`, where each flag is
 `{ id, severity, message }` and severity is `high`, `medium`, or `low`. No network access.
+A link pasted without `https://` in front is read as if it had it.
 
 | Rule | Severity |
 |---|---|
@@ -143,8 +144,8 @@ exists alongside it.
 | Path ends in an executable or installer type (`.exe`, `.scr`, `.msi`, `.apk`, `.bat`, `.cmd`, `.vbs`, `.jar`) | medium |
 | Known link shortener: the real destination is hidden | low |
 | Non-standard port | low |
-| Pressure words in the host (`login`, `verify`, `secure`, `account`, `update`, `signin`) | low |
-| Three or more hyphens in the host, or URL longer than 200 characters | low |
+| Pressure words in the site's main domain name (`login`, `verify`, `secure`, `account`, `update`, `signin`). Subdomains are not checked, so genuine pages such as `accounts.google.com` stay clean | low |
+| Three or more hyphens in the host (lookalike-encoded labels excluded), or URL longer than 200 characters | low |
 
 Verdicts: any high flag → "Likely dangerous"; any medium → "Be careful"; only low
 → "Minor concerns"; none → "No red flags found".
