@@ -159,6 +159,32 @@ async function main() {
       assert.equal(await page.getAttribute('#tab-checkup', 'aria-selected'), 'true');
     });
 
+    await step('11 works offline after the first visit', async () => {
+      const ready = await page.evaluate(() => Promise.race([
+        navigator.serviceWorker.ready.then(() => true),
+        new Promise((resolve) => setTimeout(() => resolve(false), 10000)),
+      ]));
+      assert.equal(ready, true, 'service worker did not become ready');
+      await page.reload();
+      assert.equal(await page.evaluate(() => navigator.serviceWorker.controller !== null), true);
+      apiMode = 'abort';
+      await context.setOffline(true);
+      await page.goto(server.url);
+      await page.locator('#view-password').waitFor({ state: 'visible' });
+      await page.fill('#password-input', 'password');
+      assert.equal(await text('#strength-label'), 'Very weak');
+      await page.click('#breach-button');
+      await page.locator('#breach-result:has-text("Couldn\'t check right now")').waitFor();
+      await page.click('#tab-link');
+      await page.fill('#link-input', 'http://example.com/');
+      await page.click('#link-button');
+      assert.equal(await text('#link-verdict'), 'Be careful');
+      await page.click('#tab-generator');
+      await page.click('#gen-button');
+      assert.equal((await page.inputValue('#gen-output')).length, 20);
+      await context.setOffline(false);
+    });
+
     console.log('\nAll smoke steps passed.');
   } finally {
     await browser.close();

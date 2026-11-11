@@ -364,3 +364,10 @@ setUpPassword();
 setUpLink();
 setUpGenerator();
 setUpTabs();
+
+// Offline support. If registration fails the app still works online.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js').catch(() => {});
+  });
+}
