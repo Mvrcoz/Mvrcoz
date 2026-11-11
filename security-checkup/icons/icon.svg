@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Security Checkup">
+  <rect width="512" height="512" fill="#0b6b5d"/>
+  <path fill="#ffffff" d="M256 112 142 152v80c0 70 46.7 124 114 147 67.3-23 114-77 114-147v-80L256 112z"/>
+  <path fill="none" stroke="#0b6b5d" stroke-width="28" stroke-linecap="round" stroke-linejoin="round" d="m204 246 38 38 70-76"/>
+</svg>
